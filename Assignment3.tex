@@ -33,6 +33,21 @@ This document will provide documentation and design details for the encrypted bl
 \clearpage
 
 \section{Program Design}
+We will be implementing a RAM Disk Device Driver in the Linux Yocto Kernel. 
+This will be performed in several steps for ease of implementation and testing. 
+The first step will be to directly implement the Encrypted Block device in the Linux kernel. 
+Once that has been tested and proven to work, we will move the code into a module. 
+Then we will test the module's behavior, including parameters. 
+We will be implementing the module in this way because modules are significantly harder to test than a 
+direct implementation, so adding the extra step of direct implementation before extraction should make 
+the testing process easier.
+
+The RAM Device driver will allocate a chunk of memory and present it to be used as a block device. 
+The driver will use the Linux Kernel's Crypto API to encrypt and decrypt data when it is written and 
+read. The key for the encryption will be set as a module parameter, and the text should only be 
+decrypted correctly when the key is correct. The driver must also handle the case where the block is not
+ big enough for the amount of data. In this case, a second block must be created to be used for the 
+portion of the data that does not fit in the first block.
 
 \section{Version Control Logs}
 \input{changelog.tex}
@@ -50,6 +65,9 @@ generated when make is run.
 \subsection{November 22nd, 2016 - 10:50 am}
 Added sections in documentation for purpose of assignment and testing. Started content for testing 
 section and finished content for purpose of assignment section.
+
+\subsection{November 22nd, 2016 - 11:40 am}
+Added content to program design section.
 
 \section{Purpose of Assignment}
 The purpose of this assignment is to understand encrypted block devices through the implementation of 
