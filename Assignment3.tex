@@ -1,0 +1,49 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{geometry}
+\usepackage{hyperref}
+\geometry{textheight=8.5in, textwidth=6in}
+
+\newcommand{\toc}{\tableofcontents}
+
+\def\name{Helena A. Bales}
+\title{CS 444 Project 3: Encrypted Block Device}
+\author{Helena A. Bales, Kathryn Maule, and Alexander Scott Wilson }
+
+\parindent = 0.0 in
+\parskip = 0.1 in
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This assignment will involve the modification of the Linux Yocto kernel. 
+The kernel will be modified to add a custom encrypted block device, which we will design and implement. 
+The solution will use the Linux Kernel's Crypto API to add encryption when reading and writing data. 
+The solution will comprise of a RAM Disk device driver which allocates blocks of memory. 
+The solution will first be implemented in the kernel directly for ease of testing, and will subsequently
+ be moved to a module with module parameters used for the encryption and decryption of the data. 
+This document will provide documentation and design details for the encrypted block device driver.
+\end{abstract}
+
+\clearpage
+
+\tableofcontents
+
+\clearpage
+
+\section{Program Design}
+
+\section{Version Control Logs}
+\input{changelog.tex}
+
+\section{Work Log}
+\subsection{November 22nd, 2016 - 10:20 am}
+Started write up, including documentation and design of encrypted block device driver. 
+Added script to generate version control log table from git history.
+
+\section{Purpose of Assignment}
+\section{Testing Methods}
+\section{Learning Outcomes}
+
+\end{document}
