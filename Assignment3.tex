@@ -48,7 +48,22 @@ Added a line in the makefile to remove the changelog.tex file with make clean so
 generated when make is run.
 
 \section{Purpose of Assignment}
+The purpose of this assignment is to understand encrypted block devices through the implementation of 
+our own RAM Disk device driver in the Linux Yocto Kernel. 
+Our solution will take the form of a kernel module, for the purpose of understanding how to develop a 
+kernel module. 
+The driver will encrypt and decrypt the data as it is read and written, and will handle the case where 
+the block is not big enough for the amount of data. 
+Through implementing this driver, we will learn how drivers are written, how block devices work, and 
+how encryption is implemented. 
+We will additionally learn how to test a kernel module, encryption, and block devices.
+
 \section{Testing Methods}
+Since testing kernel modules is difficult, we will begin by directly implementing the RAM Disk device 
+driver in the kernel, without encryption, then adding encryption, then extracting to a module. 
+This will allow us to easily test the basic fuctionality first, then once that has been proven to work 
+correctly, extract to a module and test the module functionality.
+
 \section{Learning Outcomes}
 
 \end{document}
