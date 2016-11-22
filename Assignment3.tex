@@ -86,6 +86,19 @@ driver in the kernel, without encryption, then adding encryption, then extractin
 This will allow us to easily test the basic fuctionality first, then once that has been proven to work 
 correctly, extract to a module and test the module functionality.
 
+In order to test the functionality of the driver when it is directly included in the kernel without 
+encryption we will give it different sets of data to write in then read. If the returned data is the 
+same as the written data, then we can say that it behaves correctly. The standard case would be a string
+ of length shorther than can be stored in the block. An edge case would be passing in a string of length
+ zero, and one that is longer than the block.
+
+In order to test that the encryption is behaving correctly, we will use the same test cases as for the 
+unencrypted case, but with the added layer of testing the key. 
+For each of the cases described in the previous paragraph, we will give the correct key and an incorrect
+ key and check that they data is only decrypted when the correct key is presented.
+
+Finally, we will test the module. TODO
+
 \section{Learning Outcomes}
 
 \end{document}
